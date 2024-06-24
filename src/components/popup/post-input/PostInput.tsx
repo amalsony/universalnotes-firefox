@@ -169,14 +169,19 @@ export default function PostInput() {
   //   return splicedURL;
   // };
 
-  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    let currentTab = tabs[0];
-    if (currentTab) {
-      setCurrentURL(currentTab.url);
-      checkNoteStatus(currentTab.url);
-      setNiceURL(getNiceURL(currentTab.url));
-    }
-  });
+  browser.tabs
+    .query({ active: true, currentWindow: true })
+    .then((tabs) => {
+      let currentTab = tabs[0];
+      if (currentTab) {
+        setCurrentURL(currentTab.url);
+        checkNoteStatus(currentTab.url);
+        setNiceURL(getNiceURL(currentTab.url));
+      }
+    })
+    .catch((error) => {
+      console.error(`Error querying tabs: ${error}`);
+    });
 
   return (
     <div className="postInputContainer">

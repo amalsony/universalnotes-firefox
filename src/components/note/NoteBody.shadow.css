@@ -4,10 +4,10 @@
   font-size: 16px !important;
   /* font-weight: 400; */
   font-weight: 400 !important;
-  white-space: pre-wrap;
+  white-space: pre-wrap !important;
   /* overflow */
   overflow: wrap;
-  overflow-wrap: break-word;
+  overflow-wrap: break-word !important;
 }
 
 .tag_link {
@@ -15,6 +15,9 @@
   text-decoration: none !important;
   cursor: pointer !important;
   transition: all 0.2s ease-in-out !important;
+  /* wrap */
+  white-space: pre-wrap !important;
+  overflow-wrap: break-word !important;
 }
 
 .tag_link:hover {
@@ -26,6 +29,9 @@
   text-decoration: none !important;
   cursor: pointer !important;
   transition: all 0.2s ease-in-out !important;
+  /* wrap */
+  white-space: pre-wrap !important;
+  overflow-wrap: break-word !important;
 }
 
 .universalnotes-link:hover {

@@ -24,7 +24,7 @@ export default function LoadingScreen() {
       {isVisible ? (
         <>
           <div className="loading-screen-loading-container">
-            <Logo />
+            <Logo color="#000" />
           </div>
           <Loading />
           {showWarning ? (

@@ -14,7 +14,7 @@ export default function MainHeader() {
   return (
     <div className="main-authenticated-container-header">
       <div className="main-authenticated-container-header-logo">
-        <Logo />
+        <Logo color="#000" />
       </div>
       <Profile />
     </div>

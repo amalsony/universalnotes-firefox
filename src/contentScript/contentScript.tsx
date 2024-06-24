@@ -30,7 +30,7 @@ export default function ContentScript() {
     if (url !== lastUrl) {
       lastUrl = url;
       chrome?.runtime?.sendMessage(
-        { action: "checkURL", url: url },
+        { action: "checkURL", url: url } as any,
         (response) => {
           // Use the response to determine whether to show the popup
           setPopupVisible(response.data.showPopup);
@@ -45,8 +45,8 @@ export default function ContentScript() {
   // Function to close the popup
   const handleClosePopup = () => {
     setPopupVisible(false);
-    chrome.runtime.sendMessage(
-      { action: "hideNote", noteId: popup?._id },
+    browser.runtime.sendMessage(
+      { action: "hideNote", noteId: popup?._id } as any,
       (response) => {
         if (response.error) {
           // Handle the error, e.g., display an error message
@@ -72,16 +72,22 @@ export default function ContentScript() {
   };
 
   useEffect(() => {
-    chrome.runtime.sendMessage({ action: "isAuthenticated" }, (response) => {
-      setIsAuthenticated(response.data);
-      setHasAccess(response.hasAccess);
-    });
+    browser.runtime.sendMessage(
+      { action: "isAuthenticated" } as any,
+      (response) => {
+        setIsAuthenticated(response.data);
+        setHasAccess(response.hasAccess);
+      }
+    );
   }, []);
 
   useEffect(() => {
-    chrome.runtime.sendMessage({ action: "accessCodeRequired" }, (response) => {
-      setAccessCodeRequired(response.data.data);
-    });
+    browser.runtime.sendMessage(
+      { action: "accessCodeRequired" } as any,
+      (response) => {
+        setAccessCodeRequired(response.data.data);
+      }
+    );
   }, []);
 
   useEffect(() => {
@@ -123,7 +129,7 @@ export default function ContentScript() {
               <Logo
                 width={22}
                 height={22}
-                color={""}
+                color={"#000"}
                 style={minimized ? { cursor: "pointer" } : {}}
               />
               {!minimized && (

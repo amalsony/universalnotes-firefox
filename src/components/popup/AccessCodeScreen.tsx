@@ -43,7 +43,7 @@ export default function AccessCodeScreen() {
 
   return (
     <div className="access-code-container">
-      <Logo />
+      <Logo color="#000" />
 
       <div className="access-code-container-main">
         {/* <h1 className="access-code-container-title">

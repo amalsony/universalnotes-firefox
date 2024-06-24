@@ -15,11 +15,15 @@ import LoginScreen from "../components/popup/LoginScreen";
 import Main from "../components/popup/main/Main";
 import AccessCodeScreen from "../components/popup/AccessCodeScreen";
 import LoadingScreen from "../components/popup/LoadingScreen";
+import Welcome from "../components/popup/welcome/FirefoxWelcome";
 
 const Popup = () => {
   const { userInfo, setUserInfo, accessCodeRequired, setAccessCodeRequired } =
     usePopup();
   const [loading, setLoading] = useState(true);
+
+  // Errors
+  const [crossOriginPolicyError, setCrossOriginPolicyError] = useState(false);
 
   useEffect(() => {
     axios
@@ -28,10 +32,16 @@ const Popup = () => {
           config.environment === "development"
             ? config.developmentAPIURL
             : config.productionAPIURL
-        }/auth/me`
+        }/auth/me`,
+        { withCredentials: true }
       )
       .then((res) => {
         setUserInfo(res.data);
+        setLoading(false);
+      })
+      .catch((e) => {
+        // check if it's a cross origin policy error
+        setCrossOriginPolicyError(true);
         setLoading(false);
       });
 
@@ -45,6 +55,11 @@ const Popup = () => {
       )
       .then((res) => {
         setAccessCodeRequired(res.data.data);
+      })
+      .catch((e) => {
+        // check if it's a cross origin policy error
+        setCrossOriginPolicyError(true);
+        setLoading(false);
       });
   }, []);
 
@@ -52,6 +67,8 @@ const Popup = () => {
     <div className="popup-container">
       {loading ? (
         <LoadingScreen />
+      ) : crossOriginPolicyError ? (
+        <Welcome />
       ) : userInfo ? (
         !accessCodeRequired || userInfo?.hasAccess ? (
           <Main />

@@ -17,14 +17,17 @@ export default function NoteFooter({ note, setNote, setShowRateNote }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    chrome.runtime.sendMessage({ action: "isAuthenticated" }, (response) => {
-      setIsAuthenticated(response.data);
-    });
+    browser.runtime.sendMessage(
+      { action: "isAuthenticated" } as any,
+      (response) => {
+        setIsAuthenticated(response.data);
+      }
+    );
   }, []);
 
   function like() {
-    chrome.runtime.sendMessage(
-      { action: "like", noteId: note?._id },
+    browser.runtime.sendMessage(
+      { action: "like", noteId: note?._id } as any,
       (response) => {
         if (response.error) {
           // Handle the error, e.g., display an error message
@@ -38,8 +41,8 @@ export default function NoteFooter({ note, setNote, setShowRateNote }) {
   }
 
   function unlike() {
-    chrome.runtime.sendMessage(
-      { action: "unlike", noteId: note?._id },
+    browser.runtime.sendMessage(
+      { action: "unlike", noteId: note?._id } as any,
       (response) => {
         if (response.error) {
           // Handle the error, e.g., display an error message
@@ -53,8 +56,8 @@ export default function NoteFooter({ note, setNote, setShowRateNote }) {
   }
 
   function dislike() {
-    chrome.runtime.sendMessage(
-      { action: "dislike", noteId: note?._id },
+    browser.runtime.sendMessage(
+      { action: "dislike", noteId: note?._id } as any,
       (response) => {
         if (response.error) {
           // Handle the error, e.g., display an error message
@@ -68,8 +71,8 @@ export default function NoteFooter({ note, setNote, setShowRateNote }) {
   }
 
   function undislike() {
-    chrome.runtime.sendMessage(
-      { action: "undislike", noteId: note?._id },
+    browser.runtime.sendMessage(
+      { action: "undislike", noteId: note?._id } as any,
       (response) => {
         if (response.error) {
           // Handle the error, e.g., display an error message

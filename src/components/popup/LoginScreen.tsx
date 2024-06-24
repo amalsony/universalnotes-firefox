@@ -10,13 +10,12 @@ import ContinueWithGoogle from "./auth/ContinueWithGoogle";
 
 export default function LoginScreen() {
   const handleLogin = () => {
-    chrome.tabs.create({
+    browser.tabs.create({
       url: `${
         config.environment === "development"
           ? config.developmentAPIURL
           : config.productionAPIURL
       }/auth/google`,
-      selected: true,
       active: true,
     });
   };

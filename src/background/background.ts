@@ -23,7 +23,7 @@ chrome?.runtime?.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 // Get proposed notes for the url from /rate-notes/get-proposed-notes
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
   const query = new URLSearchParams({ url: request.url }).toString();
   if (request.action === "getProposedNotes") {
     fetch(
@@ -47,7 +47,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 // Post actions
 
 // Like
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "like") {
     fetch(
       `${
@@ -77,7 +77,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 // Unlike
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "unlike") {
     fetch(
       `${
@@ -107,7 +107,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 // Dislike
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "dislike") {
     fetch(
       `${
@@ -137,7 +137,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 // Undislike
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "undislike") {
     fetch(
       `${
@@ -167,7 +167,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 // Hide note
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "hideNote") {
     fetch(
       `${
@@ -197,7 +197,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 // Delete
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "deleteNote") {
     fetch(
       `${
@@ -227,7 +227,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 // isAuthenticated
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "isAuthenticated") {
     // Perform the isAuthenticated action
     fetch(
@@ -253,7 +253,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 // accessCodeRequired
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "accessCodeRequired") {
     // Perform the accessCodeRequired action
     fetch(

@@ -13,8 +13,8 @@ export default function RateNote({ noteData, isAuthenticated, deleteNote }) {
   const [note, setNote] = useState(noteData);
 
   function like() {
-    chrome.runtime.sendMessage(
-      { action: "like", noteId: note?._id },
+    browser.runtime.sendMessage(
+      { action: "like", noteId: note?._id } as any,
       (response) => {
         if (response.error) {
           // Handle the error, e.g., display an error message
@@ -28,8 +28,8 @@ export default function RateNote({ noteData, isAuthenticated, deleteNote }) {
   }
 
   function unlike() {
-    chrome.runtime.sendMessage(
-      { action: "unlike", noteId: note?._id },
+    browser.runtime.sendMessage(
+      { action: "unlike", noteId: note?._id } as any,
       (response) => {
         if (response.error) {
           // Handle the error, e.g., display an error message
@@ -43,8 +43,8 @@ export default function RateNote({ noteData, isAuthenticated, deleteNote }) {
   }
 
   function dislike() {
-    chrome.runtime.sendMessage(
-      { action: "dislike", noteId: note?._id },
+    browser.runtime.sendMessage(
+      { action: "dislike", noteId: note?._id } as any,
       (response) => {
         if (response.error) {
           // Handle the error, e.g., display an error message
@@ -58,8 +58,8 @@ export default function RateNote({ noteData, isAuthenticated, deleteNote }) {
   }
 
   function undislike() {
-    chrome.runtime.sendMessage(
-      { action: "undislike", noteId: note?._id },
+    browser.runtime.sendMessage(
+      { action: "undislike", noteId: note?._id } as any,
       (response) => {
         if (response.error) {
           // Handle the error, e.g., display an error message

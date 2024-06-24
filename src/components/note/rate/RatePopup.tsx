@@ -25,9 +25,12 @@ export default function RatePopup({ setShowRateNote }) {
   const [showLoadingRing, setShowLoadingRing] = useState(false);
 
   useEffect(() => {
-    chrome.runtime.sendMessage({ action: "isAuthenticated" }, (response) => {
-      setIsAuthenticated(response.data);
-    });
+    browser.runtime.sendMessage(
+      { action: "isAuthenticated" } as any,
+      (response) => {
+        setIsAuthenticated(response.data);
+      }
+    );
   }, []);
 
   // fetch proposed notes from the server through action "getProposedNotes"
@@ -35,8 +38,8 @@ export default function RatePopup({ setShowRateNote }) {
     showLoading();
     setLoading(true);
     const query = new URLSearchParams({ url: window.location.href }).toString();
-    chrome.runtime.sendMessage(
-      { action: "getProposedNotes", url: window.location.href },
+    browser.runtime.sendMessage(
+      { action: "getProposedNotes", url: window.location.href } as any,
       (response) => {
         if (response.data) {
           setNotes(response.data.data?.notesWithContext);
@@ -61,17 +64,20 @@ export default function RatePopup({ setShowRateNote }) {
 
   // Delete Note
   function deleteNote(noteId) {
-    chrome.runtime.sendMessage({ action: "deleteNote", noteId }, (response) => {
-      if (response.error) {
-        console.error("Error deleting the note:", response.error);
-      } else if (response.data) {
-        // Filter the deleted note from either notes or notesAgainstContext
-        setNotes((notes) => notes.filter((note) => note._id !== noteId));
-        setNotesAgainstContext((notesAgainstContext) =>
-          notesAgainstContext.filter((note) => note._id !== noteId)
-        );
+    browser.runtime.sendMessage(
+      { action: "deleteNote", noteId } as any,
+      (response) => {
+        if (response.error) {
+          console.error("Error deleting the note:", response.error);
+        } else if (response.data) {
+          // Filter the deleted note from either notes or notesAgainstContext
+          setNotes((notes) => notes.filter((note) => note._id !== noteId));
+          setNotesAgainstContext((notesAgainstContext) =>
+            notesAgainstContext.filter((note) => note._id !== noteId)
+          );
+        }
       }
-    });
+    );
   }
 
   return (

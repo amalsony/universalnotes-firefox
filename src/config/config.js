@@ -1,5 +1,5 @@
 export const config = {
-  environment: "production", // development or production
+  environment: "development", // development or production
   productionAPIURL: "https://api.universalnotes.org",
   developmentAPIURL: "http://localhost:8000",
   productionClientURL: "https://www.universalnotes.org",

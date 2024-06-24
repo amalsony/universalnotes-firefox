@@ -2,7 +2,7 @@ import React from "react";
 import "./Logo.css";
 import LogoSVG from "../svgs/Logo";
 
-export default function Logo({ ...props }) {
+export default function Logo({ color, ...props }) {
   return (
     <div>
       <a
@@ -11,8 +11,10 @@ export default function Logo({ ...props }) {
         rel="noreferrer"
         className="logo-container"
       >
-        <LogoSVG width={22} height={22} color={"#000"} />
-        <h1 className="logo-title">UniversalNotes</h1>
+        <LogoSVG width={22} height={22} color={color} />
+        <h1 className="logo-title" style={{ color: color }}>
+          UniversalNotes
+        </h1>
       </a>
     </div>
   );

@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@types/chrome": "^0.0.188",
+    "@types/firefox-webext-browser": "^120.0.4",
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.4",
     "clean-webpack-plugin": "^4.0.0",
@@ -35,6 +36,7 @@
     "react-router-dom": "6.2",
     "react-shadow": "^20.4.0",
     "tailwindcss": "^3.0.24",
-    "to-string-loader": "^1.2.0"
+    "to-string-loader": "^1.2.0",
+    "webextension-polyfill": "^0.12.0"
   }
 }
