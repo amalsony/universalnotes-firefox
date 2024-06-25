@@ -11,11 +11,16 @@ To get started with UniversalNotes development or to use the extension locally, 
 
 3. Load the extension in your browser:
 
-   - For Chrome:
+   - For Chromium browsers like Chrome, Arc, Opera, Microsoft Edge, Brave:
 
      1. Open the Extension Management page by navigating to `chrome://extensions`.
      2. Enable the "Developer mode" toggle.
-     3. Click on the "Load unpacked" button and select the `dist` folder after running `npm run build` in the cloned repository.
+     3. Click on the "Load unpacked" button and select the `dist` folder after running `npm install` and `npm run build` in the cloned repository.
+
+   - For Firefox:
+
+     1. Open the Firefox Add-ons manager by navigating to `about:debugging`
+     2. Under "Temporary Extensions", press "Load Temporary Add-on" to and selection the `manifest.json` file after running `npm install` and `npm run build` in the cloned repository.
 
 4. Make your desired changes to the codebase.
 5. Test your changes by reloading the extension in your browser and verifying the functionality.
