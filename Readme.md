@@ -1,69 +1,35 @@
-# UniversalNotes Developer Guide
+# UniversalNotes Review Notes
 
-UniversalNotes is an open-source browser extension that brings Community Notes from Twitter to every website. As a developer, you can contribute to the project. Here's how you can get started:
+Thank you for reviewing UniversalNotes.
 
-## Getting Started
+## Environment
 
-To get started with UniversalNotes development or to use the extension locally, follow these steps:
+I used the following environment and version to compile UniversalNotes:
 
-1. Fork the UniversalNotes repository on GitHub.
-2. Clone the forked repository to your local machine.
+1. Operating System: `macOS Sonoma 14.0`
+2. NodeJS version: `20.9.0`
+3. NPM version: `10.1.0`
 
-3. Load the extension in your browser:
+## How to build UniversalNotes
 
-   - For Chromium browsers like Chrome, Arc, Opera, Microsoft Edge, Brave:
+To recreate the final extension, please run the following commands:
 
-     1. Open the Extension Management page by navigating to `chrome://extensions`.
-     2. Enable the "Developer mode" toggle.
-     3. Click on the "Load unpacked" button and select the `dist` folder after running `npm install` and `npm run build` in the cloned repository.
+1. Install packages: `npm install`
+2. Build the extension: `npm run build`
 
-   - For Firefox:
+The extension and manifest will be in the `dist` folder.
 
-     1. Open the Firefox Add-ons manager by navigating to `about:debugging`
-     2. Under "Temporary Extensions", press "Load Temporary Add-on" to and selection the `manifest.json` file after running `npm install` and `npm run build` in the cloned repository.
+## Additional Info
 
-4. Make your desired changes to the codebase.
-5. Test your changes by reloading the extension in your browser and verifying the functionality.
+For the extension to function, it needs to have permission to access data in the universalnotes.org domain. Instructions to enable this are communicated to the user upon opening the extension, and clicking the `Get Started` button.
 
-## Contributing
+An optional account allows the user to add notes and vote on them. An account can be created with the "Continue with Google" button.
 
-If you would like to contribute to UniversalNotes, please follow these guidelines:
+## Contact
 
-1. Create a new branch for your changes:
+If you have any questions, please contact me.
 
-   ```bash
-   git checkout -b feature/my-feature
-   ```
+- Personal Email: [amalsony5@gmail.com](mailto:amalsony5@gmail.com).
+- UniversalNotes Support Email: [universalnotesorg@gmail.com](mailto:universalnotesorg@gmail.com)
 
-2. Commit your changes with descriptive commit messages:
-
-   ```bash
-   git commit -m "Add new feature"
-   ```
-
-3. Push your branch to your forked repository:
-
-   ```bash
-   git push origin feature/my-feature
-   ```
-
-4. Open a pull request on the main UniversalNotes repository and provide a detailed description of your changes.
-
-## Resources
-
-To learn more about UniversalNotes and its development, you can visit the following resources:
-
-- [UniversalNotes Website](https://www.universalnotes.org) - the official website of UniversalNotes.
-
-## Security
-
-If you believe you have found a security vulnerability in UniversalNotes, we encourage you to responsibly disclose this and not open a public issue. We will investigate all legitimate reports. Email amal@universalnotes.org to disclose any security vulnerabilities
-
-## Support
-
-If you need any support or have any questions, you can:
-
-- Join the UniversalNotes community on [Discord](https://discord.gg/aQwaMY39).
-- Open an issue on the UniversalNotes GitHub repository.
-
-Happy coding and contributing to UniversalNotes!
+Thank you!
