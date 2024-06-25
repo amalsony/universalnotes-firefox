@@ -9,7 +9,7 @@
     "default_icon": "icon128.png"
   },
   "permissions": ["tabs"],
-  "host_permissions": ["*://*.universalnotes.org/*", "http://localhost:8000/*"],
+  "host_permissions": ["*://*.universalnotes.org/*"],
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",

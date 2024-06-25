@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./FirefoxWelcome.css";
 
+// Config
+import { config } from "../../../config/config";
+
 // Components
 import Logo from "../../../assets/general/Logo";
 
@@ -24,11 +27,14 @@ export default function Welcome() {
             Welcome to Universal Notes for Firefox.
           </p>
           <p className="welcome-screen-text">
-            Learn how to enable the necessary permissions for this extension
-            below.
+            Learn how to enable required permissions for this extension below.
           </p>
           <a
-            href="https://www.universalnotes.org/firefox"
+            href={`${
+              config.environment === "development"
+                ? config.developmentClientURL
+                : config.productionClientURL
+            }/firefox`}
             className="welcome-screen-button"
           >
             Get Started

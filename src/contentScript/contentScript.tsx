@@ -129,7 +129,7 @@ export default function ContentScript() {
               <Logo
                 width={22}
                 height={22}
-                color={"#000"}
+                color={"#4285F4"} // remember to change color
                 style={minimized ? { cursor: "pointer" } : {}}
               />
               {!minimized && (
